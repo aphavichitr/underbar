@@ -192,9 +192,8 @@
     return _.reduce(collection, function(wasFound, item) {
       if (wasFound && iterator(item)) {
         return true;
-      } else {
-        return false;
       }
+      return false;
     }, true);
   };
 
