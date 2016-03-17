@@ -239,11 +239,11 @@
   // exists in obj
   _.defaults = function(obj) {
     _.each(arguments, function(item) {
-      for (var key in item) {
+      _.each(item, function(value, key) {
         if (!obj.hasOwnProperty(key)) {
-          obj[key] = item[key];
+          obj[key] = value;
         }
-      }
+      });
     });
     return obj;
   };
@@ -329,12 +329,12 @@
     var copy = array.slice();
     var temp;
 
-    for (var i = 0; i < array.length; i++) {
+    _.each(copy, function(item, key) {
       var index = Math.floor(Math.random() * array.length);
       temp = copy[index];
-      copy[index] = copy[i];
-      copy[i] = temp;
-    }
+      copy[index] = copy[key];
+      copy[key] = temp;
+    });
     return copy;
   };
 
