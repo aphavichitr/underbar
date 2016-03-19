@@ -329,11 +329,11 @@
     var copy = array.slice();
     var temp;
 
-    _.each(copy, function(item, key) {
-      var index = Math.floor(Math.random() * array.length);
-      temp = copy[index];
-      copy[index] = copy[key];
-      copy[key] = temp;
+    _.each(copy, function(item, index) {
+      var i = Math.floor(Math.random() * array.length);
+      temp = item;
+      copy[index] = copy[i];
+      copy[i] = temp;
     });
     return copy;
   };
